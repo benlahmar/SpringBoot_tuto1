@@ -13,6 +13,7 @@ import com.example.demo.models.User;
 public interface UserRepository extends JpaRepository<User, Long>{
 
 	Page<User> findByUsername(String username,Pageable p);
+	User findByUsernameAndPassword(String un,String ps);
 	
 	
 }

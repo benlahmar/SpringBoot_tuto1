@@ -88,6 +88,20 @@ public class Client {
 	public String toString() {
 		return "Client [idclient=" + idclient + ", nom=" + nom + ", prenom=" + prenom + "]";
 	}
+
+	/**
+	 * @return the compte
+	 */
+	public User getCompte() {
+		return compte;
+	}
+
+	/**
+	 * @param compte the compte to set
+	 */
+	public void setCompte(User compte) {
+		this.compte = compte;
+	}
 	
 	
 }
