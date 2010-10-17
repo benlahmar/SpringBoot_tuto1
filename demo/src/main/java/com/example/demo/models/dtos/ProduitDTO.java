@@ -4,7 +4,7 @@
 package com.example.demo.models.dtos;
 
 /**
- * @author ISGA
+ * @author BENLAHMAR EL Habib
  *
  */
 public class ProduitDTO {

@@ -13,7 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 /**
- * @author ISGA
+ * @author BENLAHMAR EL Habib
  *
  */
 @Entity

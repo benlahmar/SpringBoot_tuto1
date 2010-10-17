@@ -14,7 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
 /**
- * @author ISGA
+ * @author BENLAHMAR EL Habib
  *
  */
 @Entity

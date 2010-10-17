@@ -7,6 +7,6 @@ public interface IProduitDTO {
 	String getDesignation();
 	double getPrix();
 	
-	@Value("target.designation+'    '+target.prix")
+	@Value("#{target.designation + ' ' + target.prix}")
 	String getinfo();
 }

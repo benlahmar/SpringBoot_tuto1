@@ -18,7 +18,7 @@ import javax.persistence.OneToOne;
 import org.springframework.data.annotation.CreatedDate;
 
 /**
- * @author ISGA
+ * @author BENLAHMAR EL Habib
  *
  */
 @Entity

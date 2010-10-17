@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 /**
- * @author ISGA
+ * @author BENLAHMAR EL Habib
  *
  */
 @Entity

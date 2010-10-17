@@ -8,7 +8,7 @@ import org.springframework.data.repository.CrudRepository;
 import com.example.demo.models.Client;
 
 /**
- * @author ISGA
+ * @author BENLAHMAR EL Habib
  *
  */
 public interface IClient extends CrudRepository<Client, Long>{

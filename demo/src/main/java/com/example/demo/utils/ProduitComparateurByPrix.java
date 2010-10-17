@@ -8,7 +8,7 @@ import java.util.Comparator;
 import com.example.demo.models.Produit;
 
 /**
- * @author ISGA
+ * @author BENLAHMAR EL Habib
  *
  */
 public class ProduitComparateurByPrix implements Comparator<Produit> {

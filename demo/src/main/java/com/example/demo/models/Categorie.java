@@ -16,7 +16,7 @@ import org.hibernate.annotations.SortNatural;
 import com.example.demo.utils.ProduitComparateurByPrix;
 
 /**
- * @author ISGA
+ * @author BENLAHMAR EL Habib
  *
  */
 @Entity

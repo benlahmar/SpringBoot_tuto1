@@ -10,7 +10,7 @@ import com.example.demo.models.Role;
 import com.example.demo.models.User;
 
 /**
- * @author ISGA
+ * @author Benlahmar
  *
  */
 public interface Icustomur {

@@ -82,7 +82,7 @@ public class DemoApplication   {
 				
 				Set<IProduitDTO> pr3 = cp.findByCategorieIdcategorie(c.getIdcategorie(), IProduitDTO.class);
 				for (IProduitDTO p : pr3) {
-					System.out.println("------"+p.getDesignation());
+					System.out.println("------"+p.getinfo());
 				}
 	}
 
