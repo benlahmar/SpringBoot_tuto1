@@ -15,6 +15,7 @@ import com.example.demo.models.Client;
 import com.example.demo.models.Produit;
 import com.example.demo.models.Role;
 import com.example.demo.models.User;
+import com.example.demo.models.dtos.IProduitDTO;
 import com.example.demo.models.dtos.ProduitDTO;
 import com.example.demo.repos.CategorieRepo;
 import com.example.demo.repos.IClient;
@@ -59,21 +60,30 @@ public class DemoApplication   {
 		CategorieRepo cr=(CategorieRepo) context.getBean("categorieRepo");
 		ProduitRepo cp=(ProduitRepo) context.getBean("produitRepo");
 		Categorie  c=new Categorie();
-		c.setLibelle("lib1");
+		c.setLibelle("lib21");
 		c=cr.save(c);
 		Produit pt=new Produit();
-		pt.setDesignation("clavier212");
+		pt.setDesignation("clavier22");
 		pt.setPrix(1200);
 		pt=cp.save(pt);
 		pt.setCategorie(c);
 		pt=cp.save(pt);
 		
-		Set<Produit> pr1 = cp.findProduit4Categorie(c.getIdcategorie(), Produit.class);
+		Set<Produit> pr1 = cp.findByCategorieIdcategorie(c.getIdcategorie(), Produit.class);
 				for (Produit p : pr1) {
 					System.out.println("------"+p.toString());
 				}
 		
-		
+				Set<ProduitDTO> pr2 = cp.findByCategorieIdcategorie(c.getIdcategorie(), ProduitDTO.class);
+				for (ProduitDTO p : pr2) {
+					System.out.println("------"+p.toString());
+				}
+				
+				
+				Set<IProduitDTO> pr3 = cp.findByCategorieIdcategorie(c.getIdcategorie(), IProduitDTO.class);
+				for (IProduitDTO p : pr3) {
+					System.out.println("------"+p.getDesignation());
+				}
 	}
 
 }
