@@ -21,5 +21,7 @@ public interface Icustomur {
 	public Client getClient4User(Long idUser);
 	public List<Role> getroles(Long idclient);
 	public List<Client> clients();
+	public User EditCompte(Long idclient, User compte);
+	public User myCompte(Long idclient);
 	
 }

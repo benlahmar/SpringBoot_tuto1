@@ -70,4 +70,19 @@ public class CustomerManager implements Icustomur{
 		return (List<Client>) cm.findAll();
 	}
 
+	@Override
+	public User EditCompte(Long idclient, User compte) {
+		Client c = cm.findById(idclient).get();
+		c.setCompte(compte);
+		cm.save(c);
+		return compte;
+	}
+
+	@Override
+	public User myCompte(Long idclient) {
+		Client c = cm.findById(idclient).get();
+		return c.getCompte();
+		
+	}
+
 }

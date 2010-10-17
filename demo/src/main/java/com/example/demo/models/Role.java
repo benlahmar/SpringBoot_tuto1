@@ -23,6 +23,7 @@ public class Role {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	Long idrole;
+	
 	String role;
 	
 	@ManyToMany(mappedBy = "roles", fetch = FetchType.EAGER)
