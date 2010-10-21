@@ -13,15 +13,15 @@ import com.example.demo.models.dtos.IProduitDTO;
 import com.example.demo.models.dtos.ProduitDTO;
 
 /**
- * @author ISGA
+ * @author BENLAHMAR EL Habib
  *
  */
 public interface IShowCategorie {
 	 Page<Categorie> categories(int nb);
 	 Categorie getCategorie(Long idcat);
-	 Set<ProduitDTO> produits4Categorie(Long idcate);
+	 Page<ProduitDTO> produits4Categorie(Long idcate, int nb);
 	 Produit getdetaille(Long idproduit);
-	 public Set<IProduitDTO> search(String key);
+	 public Page<IProduitDTO> search(String key,int nb);
 	 
 	 public Categorie addCategorie(Categorie c);
 	 public Produit addproduit2Categorie(Produit p, Long idcategorie);

@@ -10,7 +10,7 @@ import com.example.demo.models.Categorie;
 import com.example.demo.models.dtos.ProduitDTO;
 
 /**
- * @author BENLAHMAR 
+ * @author BENLAHMAR EL Habib 
  *
  */
 public interface Icatalogue {

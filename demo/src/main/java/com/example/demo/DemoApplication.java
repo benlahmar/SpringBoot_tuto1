@@ -9,6 +9,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.data.domain.Page;
 
 import com.example.demo.models.Categorie;
 import com.example.demo.models.Client;
@@ -22,6 +23,7 @@ import com.example.demo.repos.IClient;
 import com.example.demo.repos.ProduitRepo;
 import com.example.demo.repos.RoleRepository;
 import com.example.demo.repos.UserRepository;
+import com.example.demo.services.ShowCategorie;
 
 @SpringBootApplication
 public class DemoApplication   {
@@ -57,33 +59,39 @@ public class DemoApplication   {
 //		List<Role> rs = u.getRoles();
 //		rs.stream().map(x->x.getRole()).forEach(System.out::println);
 
-		CategorieRepo cr=(CategorieRepo) context.getBean("categorieRepo");
-		ProduitRepo cp=(ProduitRepo) context.getBean("produitRepo");
-		Categorie  c=new Categorie();
-		c.setLibelle("lib21");
-		c=cr.save(c);
-		Produit pt=new Produit();
-		pt.setDesignation("clavier22");
-		pt.setPrix(1200);
-		pt=cp.save(pt);
-		pt.setCategorie(c);
-		pt=cp.save(pt);
-		
-		Set<Produit> pr1 = cp.findByCategorieIdcategorie(c.getIdcategorie(), Produit.class);
-				for (Produit p : pr1) {
-					System.out.println("------"+p.toString());
-				}
-		
-				Set<ProduitDTO> pr2 = cp.findByCategorieIdcategorie(c.getIdcategorie(), ProduitDTO.class);
-				for (ProduitDTO p : pr2) {
-					System.out.println("------"+p.toString());
-				}
-				
-				
-				Set<IProduitDTO> pr3 = cp.findByCategorieIdcategorie(c.getIdcategorie(), IProduitDTO.class);
-				for (IProduitDTO p : pr3) {
-					System.out.println("------"+p.getinfo());
-				}
+//		CategorieRepo cr=(CategorieRepo) context.getBean("categorieRepo");
+//		ProduitRepo cp=(ProduitRepo) context.getBean("produitRepo");
+//		Categorie  c=new Categorie();
+//		c.setLibelle("lib21");
+//		c=cr.save(c);
+//		Produit pt=new Produit();
+//		pt.setDesignation("clavier22");
+//		pt.setPrix(1200);
+//		pt=cp.save(pt);
+//		pt.setCategorie(c);
+//		pt=cp.save(pt);
+//		
+//		Set<Produit> pr1 = cp.findByCategorieIdcategorie(c.getIdcategorie(), Produit.class);
+//				for (Produit p : pr1) {
+//					System.out.println("------"+p.toString());
+//				}
+//		
+//				Set<ProduitDTO> pr2 = cp.findByCategorieIdcategorie(c.getIdcategorie(), ProduitDTO.class);
+//				for (ProduitDTO p : pr2) {
+//					System.out.println("------"+p.toString());
+//				}
+//				
+//				
+//				Set<IProduitDTO> pr3 = cp.findByCategorieIdcategorie(c.getIdcategorie(), IProduitDTO.class);
+//				for (IProduitDTO p : pr3) {
+//					System.out.println("------"+p.getinfo());
+//				}
+//				
+		ShowCategorie service = context.getBean(ShowCategorie.class);
+		Page<IProduitDTO> pg = service.search("clav", 8);
+		for (IProduitDTO p : pg) {
+			System.out.println( p.getinfo());
+		}
 	}
 
 }

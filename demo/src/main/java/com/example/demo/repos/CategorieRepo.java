@@ -11,6 +11,6 @@ import com.example.demo.models.Categorie;
 
 
 public interface CategorieRepo extends PagingAndSortingRepository<Categorie, Long>{
-	public Page<Categorie> findByLibelle(Pageable p);
+	public Page<Categorie> findByLibelle(String lib,Pageable p);
 	
 }
