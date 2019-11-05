@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
@@ -13,6 +15,8 @@ import org.springframework.data.domain.Page;
 
 import com.example.demo.models.Categorie;
 import com.example.demo.models.Client;
+import com.example.demo.models.Command;
+import com.example.demo.models.Composant;
 import com.example.demo.models.Produit;
 import com.example.demo.models.Role;
 import com.example.demo.models.User;
@@ -23,6 +27,7 @@ import com.example.demo.repos.IClient;
 import com.example.demo.repos.ProduitRepo;
 import com.example.demo.repos.RoleRepository;
 import com.example.demo.repos.UserRepository;
+import com.example.demo.services.BillManager;
 import com.example.demo.services.ShowCategorie;
 
 @SpringBootApplication
@@ -87,11 +92,23 @@ public class DemoApplication   {
 //					System.out.println("------"+p.getinfo());
 //				}
 //				
-		ShowCategorie service = context.getBean(ShowCategorie.class);
-		Page<IProduitDTO> pg = service.search("clav", 8);
-		for (IProduitDTO p : pg) {
-			System.out.println( p.getinfo());
-		}
+//		ShowCategorie service = context.getBean(ShowCategorie.class);
+//		Page<IProduitDTO> pg = service.search("clav", 8);
+//		for (IProduitDTO p : pg) {
+//			System.out.println( p.getinfo());
+//		}
+		BillManager billservice = context.getBean(BillManager.class);
+		
+		Command cmd=new Command();
+		cmd.setDate(new Date(LocalDate.now().toEpochDay()));
+		cmd=billservice.addcommand(cmd, 1L);
+		
+		Composant cmp1=new Composant();
+		cmp1.setPrix(12);;
+		cmp1.setQuantite(5);
+		billservice.addComposant(9L,144,12, cmd.getIdcommande());
+		
+		
 	}
 
 }

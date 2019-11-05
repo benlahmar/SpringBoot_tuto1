@@ -3,7 +3,9 @@
  */
 package com.example.demo.models;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -11,6 +13,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  * @author BENLAHMAR EL Habib
@@ -44,6 +47,10 @@ public class Produit {
 	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	Categorie categorie;
 
+	
+	@OneToMany(mappedBy = "produit")
+	List<Composant> composants=new ArrayList<>();
+	
 
 	/**
 	 * @return the idproduit
