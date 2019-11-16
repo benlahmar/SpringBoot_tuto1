@@ -98,11 +98,11 @@ public class DemoApplication   {
 //			System.out.println( p.getinfo());
 //		}
 		BillManager billservice = context.getBean(BillManager.class);
-		
+//		
 		Command cmd=new Command();
 		cmd.setDate(new Date(LocalDate.now().toEpochDay()));
 		cmd=billservice.addcommand(cmd, 1L);
-		
+//		
 		Composant cmp1=new Composant();
 		cmp1.setPrix(12);;
 		cmp1.setQuantite(5);

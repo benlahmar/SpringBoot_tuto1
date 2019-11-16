@@ -10,6 +10,8 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +30,10 @@ import com.example.demo.repos.ProduitRepo;
  */
 @Service
 public class BillManager implements IBill{
+	
+	
+//	private static final Logger log = LoggerFactory.getLogger(BillManager.class);
+
 
 	@Autowired
 	IComposantRepo comprepo;
@@ -44,12 +50,14 @@ public class BillManager implements IBill{
 	
 	@Override
 	public Command addcommand(Command cmd,Long idclient) {
+		
 		Optional<Client> o = crepo.findById(idclient);
 		Client c=null;
 		if(o.isPresent())
 			c=o.get();
 		cmd.setClient(c);
 		cmd=comdrepo.save(cmd);
+		
 		return cmd;
 	}
 
