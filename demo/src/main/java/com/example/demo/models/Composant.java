@@ -20,6 +20,7 @@ public class Composant {
 	/**
 	 * @param quantite
 	 * @param prix
+	 * 
 	 */
 	public Composant(int quantite, double prix) {
 		super();

@@ -17,6 +17,10 @@ import javax.persistence.OneToOne;
 
 import org.springframework.data.annotation.CreatedDate;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 /**
  * @author BENLAHMAR EL Habib
  *
@@ -58,9 +62,11 @@ public class User {
 	public void setClient(Client client) {
 		this.client = client;
 	}
+	@JsonIgnore
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	List<Role> roles=new ArrayList<Role>();
 	
+	@JsonBackReference
 	@OneToOne(mappedBy = "compte",cascade = CascadeType.ALL)
 	Client client;
 	

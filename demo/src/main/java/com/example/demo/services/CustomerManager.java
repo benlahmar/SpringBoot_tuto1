@@ -4,8 +4,12 @@
 package com.example.demo.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.models.Client;
@@ -31,12 +35,11 @@ public class CustomerManager implements Icustomur{
 	
 	
 	@Override
-	public User inscrire(Client c, User u) {
+	public User inscrire(User c) {
+
 		
-		u=urepo.save(u);
-		c.setCompte(u);
-		c=cm.save(c);
-		return u;
+		c=urepo.save(c);
+		return c;
 	}
 
 	@Override
@@ -67,9 +70,10 @@ public class CustomerManager implements Icustomur{
 	}
 
 	@Override
-	public List<Client> clients() {
+	public Page<Client> clients(int page) {
 		
-		return (List<Client>) cm.findAll();
+		PageRequest pageable = PageRequest.of(page,3);
+		return  cm.findAll(pageable);
 	}
 
 	@Override
@@ -86,5 +90,22 @@ public class CustomerManager implements Icustomur{
 		return c.getCompte();
 		
 	}
+	public List<User> allcomptes(Long idc)
+	{
+		return urepo.findByClientIdclient(idc);
+	}
 
+	public boolean delete(Long id)
+	{
+		 Optional<Client> c = cm.findById(id);
+		 if(c.isPresent())
+		 {
+		cm.delete(c.get());
+		return true;
+		 }else
+		 {
+			 return false;
+			 
+		 }
+	}
 }

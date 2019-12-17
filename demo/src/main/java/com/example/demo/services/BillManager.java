@@ -32,7 +32,7 @@ import com.example.demo.repos.ProduitRepo;
 public class BillManager implements IBill{
 	
 	
-//	private static final Logger log = LoggerFactory.getLogger(BillManager.class);
+	//private static final Logger log = LoggerFactory.getLogger(BillManager.class);
 
 
 	@Autowired

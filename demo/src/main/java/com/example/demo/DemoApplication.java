@@ -97,17 +97,18 @@ public class DemoApplication   {
 //		for (IProduitDTO p : pg) {
 //			System.out.println( p.getinfo());
 //		}
-		BillManager billservice = context.getBean(BillManager.class);
+	//	BillManager billservice = context.getBean(BillManager.class);
 //		
-		Command cmd=new Command();
-		cmd.setDate(new Date(LocalDate.now().toEpochDay()));
-		cmd=billservice.addcommand(cmd, 1L);
+//		Command cmd=new Command();
+//		cmd.setDate(new Date(LocalDate.now().toEpochDay()));
+//		cmd=billservice.addcommand(cmd, 1L);
+//		System.out.println("fin de la méthode");
+////		
+//		Composant cmp1=new Composant();
+//		cmp1.setPrix(12);;
+//		cmp1.setQuantite(5);
+//		billservice.addComposant(9L,144,12, cmd.getIdcommande());
 //		
-		Composant cmp1=new Composant();
-		cmp1.setPrix(12);;
-		cmp1.setQuantite(5);
-		billservice.addComposant(9L,144,12, cmd.getIdcommande());
-		
 		
 	}
 

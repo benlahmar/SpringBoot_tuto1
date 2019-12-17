@@ -16,14 +16,14 @@ import org.springframework.stereotype.Service;
  *
  */
 @Aspect
-@Service
+
 public class Aspect1 {
 
 	
 	private static final Logger log = LoggerFactory.getLogger(Aspect1.class);
 
 	
-	@Before("execution(* com.example.demo.services.BillManager.*(..))")
+	//@Before("execution(* com.example.demo.services.BillManager.*(..))")
 	public void demarage(JoinPoint jp)
 	{
 		log.info("debut de la méthode  "+jp.getSignature().getName());
@@ -31,7 +31,7 @@ public class Aspect1 {
 	}
 	
 	
-	@After("execution(* com.example.demo.services.BillManager.*(..))")
+	//@After("execution(* com.example.demo.services.BillManager.*(..))")
 	public void fin(JoinPoint jp)
 	{
 		log.info("fin de la méthode  addcomand"+jp.getSignature().getName());

@@ -8,6 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 /**
  * @author BENLAHMAR EL Habib
  *
@@ -21,6 +25,7 @@ public class Client {
 	
 	String nom,prenom;
 	
+	@JsonManagedReference
 	@OneToOne
 	User compte;
 
